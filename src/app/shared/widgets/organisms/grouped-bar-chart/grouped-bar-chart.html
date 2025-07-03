@@ -1,0 +1,20 @@
+<div class="chart-container">
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    style="width: 100%; height: 200px; display: block;"
+  ></highcharts-chart>
+
+  <!-- Custom legend -->
+  <div class="custom-legend-wrapper">
+    <div class="custom-legend">
+      <div
+        class="legend-item"
+        *ngFor="let s of seriesData; let i = index"
+      >
+        <span class="legend-swatch" [style.background]="s.color"></span>
+        <span class="legend-label">{{ s.name }}</span>
+      </div>
+    </div>
+  </div>
+</div>

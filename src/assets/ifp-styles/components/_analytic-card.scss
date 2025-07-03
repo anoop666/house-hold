@@ -1,0 +1,229 @@
+@use '../../../assets/ifp-styles/abstracts' as *;
+.ifp-analysis {
+  display: flex;
+  position: relative;
+  &__outer {
+    height: 100%;
+  }
+  &__left {
+    width: 100%;
+
+    &--minimize {
+      width: 33.33%;
+    }
+  }
+
+  &__chart {
+    min-height: 180px;
+  }
+
+  &__right {
+    margin-left: $spacer-4;
+    width: calc(66.66% - $spacer-4);
+  }
+
+  &__value {
+    margin: 10px -2px 0px -2px;
+    color: $ifp-color-green-dark;
+    display: flex;
+    &--baseline {
+      align-items: baseline;
+    }
+  }
+
+  &__unit {
+    margin-left: $spacer-1;
+    font-size: $ifp-fs-3;
+  }
+
+  &__currency-upto {
+    margin: 10px 2px 0px 2px;
+    vertical-align: text-top;
+    font-size: $ifp-fs-2;
+  }
+
+  &__currency-currency {
+    margin: 0px 2px;
+    font-weight: $fw-bold;
+    font-size: $ifp-fs-13;
+  }
+
+  &__currency-subtitle {
+    margin: 0px 2px;
+    font-size: $ifp-fs-3;
+    span {
+      font-size: inherit;
+    }
+  }
+
+  &__currency-words {
+    min-height: 10px;
+    vertical-align: text-top;
+    margin: 10px 2px 0px 2px;
+    font-size: $ifp-fs-2;
+  }
+
+  &__btn {
+    &--small {
+      display: inline-flex;
+      align-items: center;
+      // justify-content: center;
+      width: 100%;
+    }
+  }
+
+  &__txt-icon {
+    margin-top: 14px;
+  }
+
+  &__txt-icons {
+    margin-top: auto;
+    margin-bottom: $spacer-3;
+    &:last-child {
+      margin-bottom: $spacer-0;
+    }
+  }
+
+  &__heading {
+    font-size: $ifp-fs-5;
+    font-weight: $fw-bold;
+    min-height: 47px;
+    max-height: 47px;
+    text-transform: capitalize;
+    color: $ifp-color-black;
+  }
+
+  &__substitle {
+    min-height: 37px;
+    max-height: 37px;
+    margin-top: 10px;
+    font-size: $ifp-fs-3;
+    color: $ifp-color-black
+  }
+
+  &__heading,
+  &__substitle {
+    @include lineLimit(2);
+    user-select: none;
+    &::first-letter {
+      text-transform: capitalize;
+    }
+  }
+
+  &__selectors {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $spacer-2;
+
+    .ifp-analysis__month-selector:only-child {
+      margin: $spacer-0 auto;
+    }
+    .ifp-node__month-selector {
+      margin-top: $spacer-0;
+    }
+  }
+
+  &__range-selector {
+    display: flex;
+    align-items: center;
+  }
+
+  &__range-selector-label {
+    display: flex;
+    align-items: center;
+    margin-right: $spacer-2;
+    font-size: $ifp-fs-3;
+  }
+
+  &__rate-card {
+    margin-bottom: 20px;
+  }
+
+  &__remove {
+    .ifp-btn {
+      font-size: $ifp-fs-6;
+    }
+  }
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__footer-inner {
+    margin-inline-start: auto;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.ifp-myapps-sidebar,
+.ifp-sidebar__preview {
+  .ifp-analysis {
+    display: block;
+    &__left {
+      width: 100%;
+    }
+    &__right {
+      margin-top: $spacer-3;
+      margin-left: $spacer-0;
+      width: 100%;
+    }
+  }
+}
+
+[dir="rtl"] {
+  .ifp-analysis {
+    &__right {
+      margin-right: $spacer-4;
+      margin-left: $spacer-0;
+    }
+    &__range-selector-label {
+      margin-left: $spacer-2;
+      margin-right: $spacer-0;
+
+    }
+    &__value--percentage {
+      direction: ltr;
+      justify-content: flex-end;
+    }
+    &__remove {
+      // left: 10px;
+      // right: auto;
+      margin-right: auto;
+      margin-left: $spacer-0;
+    }
+  }
+}
+
+@include mobile {
+  .ifp-analysis {
+    display: block;
+    &__left {
+      width: 100%;
+    }
+
+    &__right {
+      margin-top: $spacer-3;
+      margin-left: $spacer-0;
+      width: 100%;
+    }
+
+    &__heading,
+    &__substitle {
+      min-height: 0;
+    }
+    &__heading {
+      font-size: $ifp-fs-4;
+    }
+    &__currency-currency {
+      font-size: $ifp-fs-8;
+    }
+    &__currency-subtitle,
+    &__currency-words {
+      font-size: $ifp-fs-2;
+    }
+    &__currency-words {
+      margin-top: 3px;
+    }
+  }
+}

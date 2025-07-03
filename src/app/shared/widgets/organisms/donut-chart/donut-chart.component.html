@@ -1,0 +1,22 @@
+<highcharts-chart
+  [Highcharts]="Highcharts"
+  [options]="chartOptions"
+  [(update)]="updateFlag"
+  style="width: 400px; height: 400px; display: block; position: relative;"
+>
+</highcharts-chart>
+
+<div
+  style="
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  "
+>
+  <div style="font-size: 26px; color: #444;font-weight: 100;">Abu Dhabi Emirate</div>
+  <div style="font-size: 34px; font-weight: 500;">Households</div>
+  <div style="font-size: 38px; font-weight: bold;">{{chartData.totalVal}}</div>
+</div>

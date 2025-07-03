@@ -1,0 +1,65 @@
+@use '../abstracts' as *;
+// Shared download button styles
+::ng-deep .ifp-dropdown--download {
+  padding-left: 8rem !important;
+  position: fixed !important;
+  font-size: 1.6rem !important;
+  z-index: 209 !important;
+}
+.ifp-drop-download {
+  border: 1px solid var(--ifp-color-grey-7);
+  border-radius: 10px;
+  width: 35px;
+  min-width: 35px;
+  height: 35px;
+  line-height: 35px !important;
+  text-align: center;
+  margin: 0 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  ::ng-deep button {
+    color: inherit;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  &:hover:not(.ifp-drop-download--disabled) {
+    background-color: var(--ifp-color-active-blue) !important;
+    border-color: var(--ifp-color-active-blue) !important;
+    ::ng-deep button {
+      color: var(--ifp-color-white-global) !important;
+      background-color: transparent !important;
+    }
+  }
+  &--disabled {
+    cursor: not-allowed !important;
+    opacity: 0.5;
+    pointer-events: none;
+    &:hover {
+      background-color: transparent !important;
+      border-color: var(--ifp-color-grey-7) !important;
+    }
+  }
+  // Variant for insight analysis components
+  &--insight {
+    margin: 0 8px 16px !important;
+    max-height: fit-content;
+  }
+}
+// Header wrapper for download sections
+.ifp-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  &__title {
+    margin: 0;
+  }
+  
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+}

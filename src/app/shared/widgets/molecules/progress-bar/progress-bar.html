@@ -1,0 +1,6 @@
+<div class="ifp-progress__container" [ngClass]="align">
+  <div class="ifp-progress__bar">
+    <div class="ifp-progress__fill" [style.width.%]="percentage"></div>
+  </div>
+  <span class="ifp-progress__percentage">{{ percentage.toFixed(2) }}%</span>
+</div>

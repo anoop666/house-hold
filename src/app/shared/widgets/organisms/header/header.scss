@@ -1,0 +1,182 @@
+@use "../../../../../assets/ifp-styles/abstracts/index" as *;
+
+.ifp-header {
+  padding: $spacer-4 $spacer-0 $spacer-2;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: auto;
+  // background: linear-gradient(to bottom, #e9fcfd 100%, #ffffff 100%);
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 160px;
+    height: auto;
+    display: block;
+  }
+
+  &__contents {
+    margin-left: auto;
+  }
+
+  &__dropdown {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav {
+    padding: $spacer-3 $spacer-0;
+    font-size: $ifp-fs-3;
+    color: $ifp-color-black-global;
+    position: relative;
+    margin-right: $spacer-4;
+    cursor: pointer;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: $spacer-2;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: transparent;
+    }
+
+    &:last-child {
+      margin-right: $spacer-0;
+    }
+
+    &.active,
+    &:hover {
+      opacity: 1;
+
+      &::before {
+        background-color: $ifp-color-black-global;
+      }
+    }
+
+    &.active {
+      font-weight: $fw-semi-bold;
+    }
+
+
+  }
+
+  &__hamburger,
+  &__close {
+    display: none;
+  }
+}
+
+@include tablet {
+  .ifp-header {
+    &__logo {
+      width: 120px;
+    }
+
+    &__nav {
+      font-size: $ifp-fs-2;
+      padding: $spacer-2 $spacer-0;
+      margin-right: $spacer-3;
+    }
+  }
+}
+
+@include mobile {
+  .ifp-header {
+    padding: $spacer-3 $spacer-0 $spacer-2;
+
+    &__logo {
+      width: 100px;
+    }
+
+    &__dropdown {
+      padding: $spacer-6 $spacer-3;
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      background-color: rgb(0 0 0 / 0.7);
+      transform: translateX(-100%);
+      transition: all 0.3s;
+
+      &.active {
+        transform: translateX(0);
+      }
+    }
+
+    &__nav {
+      color: $ifp-color-white-global;
+      margin-right: $spacer-0;
+
+      &.active {
+        &::before {
+          background-color: $ifp-color-white-global;
+        }
+      }
+    }
+
+    &__close {
+      position: absolute;
+      right: 12px;
+      top: 17px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      display: block;
+      padding: $spacer-0;
+      background-color: $ifp-color-black-global;
+      transition: all 0.3s;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &__hamburger {
+      width: 15px;
+      height: 13px;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      padding: $spacer-0;
+
+      span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: $ifp-color-black-global;
+        border-radius: 2px;
+        margin-bottom: 2px;
+
+        &:last-child {
+          margin-bottom: $spacer-0;
+        }
+      }
+    }
+  }
+}

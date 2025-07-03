@@ -1,0 +1,25 @@
+@use "../abstracts/index" as *;
+$side-spacing: $spacer-5;
+.ifp-ai-report {
+  &__module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacer-3;
+  }
+  &__module-title {
+    font-size: $ifp-fs-8;
+    font-weight: $fw-bold;
+  }
+  &__desc {
+    text-align: left;
+    margin-bottom: $spacer-3;
+    white-space:pre-wrap;
+    &:last-child {
+      margin-bottom: $spacer-0;
+    }
+  }
+  &__side-spacing {
+    padding: $spacer-0 $side-spacing;
+  }
+}

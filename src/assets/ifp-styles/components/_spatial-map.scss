@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+@include mobile {
+  .ifp-map {
+    .esri-view .esri-view-surface--inset-outline:focus {
+      &::after {
+        content: none;
+      }
+    }
+    .esri-expand__container--expanded {
+      width: 100% !important;
+      padding-top: 141px;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+<div class="ifp-filter">
+  <div class="ifp-filter__btn-outer">
+    <button class="ifp-filter__close" type="button" (click)="mobileFilterClick()">
+      <img src="/assets/images/close-icon.svg" alt="close-icon" class="close-icon"/>
+      Filter
+      <!-- <span>3</span> -->
+       <img src="../../../../../assets/images/down-arrow-black.svg" alt="down-arrow" class="down-arrow" >
+    </button>
+  </div>
+  <div class="ifp-filter__mob-dropdown" [ngClass]="{'expand': mobileExpand}">
+    <div class="ifp-filter__dropdown-outer">
+    <div
+      class="ifp-dropdown"
+      [ngClass]="{'active': expandDropdown}"
+      (click)="dropdownClick()"
+    >
+      <label class="ifp-dropdown__label">Household type</label>
+      <div class="ifp-dropdown__value">All</div>
+    </div>
+    <div class="ifp-dropdown"
+    [ngClass]="{'active': expandDropdownDwelling}"
+    (click)="dropdownClickDwelling()"
+    >
+      <label class="ifp-dropdown__label">Dwelling type</label>
+      <div class="ifp-dropdown__value">All</div>
+    </div>
+    <div class="ifp-dropdown"
+    [ngClass]="{'active': expandDropdownRegion}"
+      (click)="dropdownClickRegion()"
+    >
+      <label class="ifp-dropdown__label">Household type</label>
+      <div class="ifp-dropdown__value">All</div>
+    </div>
+  </div>
+  <app-button [btnLabel]="'Reset'"></app-button>
+  </div>
+
+  <div
+    class="ifp-filter__dropdown-contents"
+    [ngClass]="{'expand': expandDropdown}"
+  >
+    <button
+      type="button"
+      class="ifp-filter__dropdown-close"
+      (click)="dropdownClick()"
+    >
+      <img src="../../../../../assets/images/close-circle.svg" alt="close" />
+    </button>
+    <div class="ifp-filter__tags-outer">
+      @for(item of houseHoldTypes; track item;){
+      <div class="ifp-filter__tag" ngClass="{'selected':item.selected}" (click)="selectedItem(item,'houseHold')">
+        @if(item.selected){
+        <img src="/assets/images/tick-icon.svg" alt="tick" />
+        }
+        {{item.value}}
+      </div>
+      }
+  </div>
+
+  <div
+    class="ifp-filter__dropdown-contents"
+    [ngClass]="{'expand': expandDropdownRegion}"
+  >
+    <button
+      type="button"
+      class="ifp-filter__dropdown-close"
+      (click)="dropdownClickRegion()"
+    >
+      <img src="../../../../../assets/images/close-circle.svg" alt="close" />
+    </button>
+    <div class="ifp-filter__tags-outer">
+      @for(item of regions; track item;){
+      <div class="ifp-filter__tag" ngClass="{'selected':item.selected}" (click)="selectedItem(item,'region')">
+        @if(item.selected){
+        <img src="/assets/images/tick-icon.svg" alt="tick" />
+        }
+        {{item.value}}
+      </div>
+      }
+  </div>
+</div>

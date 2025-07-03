@@ -1,0 +1,26 @@
+<div class="donut-container">
+  <div class="chart-wrapper">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions"
+      style="width: 80%; height: 250px; display: block"
+    ></highcharts-chart>
+    <div class="center-circle">
+      <div class="center-text">
+        <div class="total">{{ total | number }}</div>
+        <div class="label">Total</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item" *ngFor="let item of data">
+      <div class="dot" [style.background]="item.color"></div>
+      <div class="legend-text">
+        <strong>{{ item.name }}</strong>
+        <div>{{ item.value | number }}</div>
+        <div>{{ item.percentage }}%</div>
+      </div>
+    </div>
+  </div>
+</div>

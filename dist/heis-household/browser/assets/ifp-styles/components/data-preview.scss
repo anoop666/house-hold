@@ -1,0 +1,110 @@
+@use '../../../assets/ifp-styles/abstracts' as *;
+
+.ifp-data-preview {
+  background-color: $ifp-color-section-white;
+  padding: $spacer-4;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid $ifp-color-grey-7;
+  &__full {
+    display: block;
+    margin: (-$spacer-4) (-$spacer-4) $spacer-0 (
+      -$spacer-4
+    );
+
+}
+
+
+
+&__toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacer-4;
+  position: relative;
+  z-index: 2;
+}
+
+&__tools {
+  display: flex;
+  align-items: center;
+  margin: $spacer-0 (
+    -$spacer-3
+  );
+}
+
+&__tool,
+&__duration,
+&__dropdown {
+  margin: $spacer-0 $spacer-3;
+}
+
+&__tool,
+&__dropdown {
+  font-size: $ifp-fs-6;
+}
+
+&__tool {
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover,
+  &--active {
+    color: $ifp-color-blue-hover;
+  }
+}
+
+&__title {
+  font-size: $ifp-fs-5;
+  font-weight: $fw-bold;
+}
+
+&__resize {
+  background-color: $ifp-color-grey-2;
+  color: $ifp-color-white;
+  padding: 2px $spacer-6;
+  border-radius: 30px;
+  cursor: n-resize;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+&__inner {
+  position: relative;
+  max-height: 310px;
+  // min-height: 300px;
+  width: 100%;
+  // height: 300px;
+  padding-inline-end: $spacer-2;
+  scroll-behavior: smooth;
+  @include ifp-scroll-y($ifp-color-dropdown-select, $ifp-color-grey-1, 8px, 8px);
+  &::-webkit-scrollbar-corner {
+    background-color:transparent
+  }
+  overflow: auto;
+}
+
+&__full-inner {
+  max-height: 100%;
+}
+
+&__table {
+  width: 100%;
+
+  &--adjust {
+    width: calc(100% - 455px);
+  }
+}
+
+&__prob {
+  margin-left: $spacer-4;
+  width: 455px;
+}
+
+&__pagination {
+  margin-top: $spacer-2;
+  display: block;
+}
+}

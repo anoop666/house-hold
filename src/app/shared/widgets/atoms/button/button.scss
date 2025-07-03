@@ -1,0 +1,27 @@
+@use '../../../../../assets/ifp-styles/abstracts/index' as *;
+
+.ifp-button {
+  position: relative;
+  padding: $spacer-2;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid $ifp-color-grey-5;
+  overflow: hidden;
+  font-size: 14px;
+  background-color: $ifp-color-white-global;
+  color: $ifp-color-black-global;
+  transition: all 0.3s;
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: scale(0.9);
+  }
+}

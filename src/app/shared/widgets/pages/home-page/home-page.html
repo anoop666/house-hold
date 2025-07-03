@@ -1,0 +1,123 @@
+<div class="ifp-home__page">
+  <div class="ifp-home__bg">
+    <img src="../../../../../assets/images/home-bg.png" alt="home-bg">
+  </div>
+  <app-header></app-header>
+  <div class="ifp-home__vertical-slider-container" (wheel)="onScroll($event)" (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)">
+    @for (slide of slides; let i = $index; track $index) { @if (i ===
+    currentSlide) {
+    <div
+      class="ifp-home__vertical-slider active"
+      [@slideVertical]="
+          i === currentSlide
+            ? { value: 'enter', params: animationParams }
+            : { value: 'leave', params: animationParams }
+        "
+    >
+      @if (slide.component === 'home') {
+      <div class="ifp-home__contents">
+        <div class="ifp-container ifp-home--small-container">
+          <div class="ifp-home__household-wrapper">
+            <div class="ifp-home__box-outer">
+              <div class="ifp-home__box">
+                <div class="ifp-home__color-txt">Emirate</div>
+                <div class="ifp-home__value big">{{householdOverview?.emirati?.[0]?.totalHouseholds??'-'}}</div>
+                <div class="ifp-home__percentage">{{householdOverview?.emirati?.[0]?.percentage??'-'}}</div>
+              </div>
+              <div class="ifp-home__box">
+                <div class="ifp-home__small-txt">Average household size</div>
+                <div class="ifp-home__value">{{householdOverview?.emirati?.[0]?.averageHouseholdSize??'-'}}</div>
+                <div class="ifp-home__person">
+                  <img
+                    src="../../../../../assets/images/persons-img.png"
+                    alt="person-img"
+                  />
+                </div>
+              </div>
+              <div class="ifp-home__emirates-fam">
+                  <img src="../../../../../assets/images/emirates-family.png" alt="family">
+              </div>
+            </div>
+            <div class="ifp-home__donut-box">
+              <!-- <img
+                src="../../../../../assets/images/donut.png"
+                alt="donut"
+                class="ifp-home__donut"
+              /> -->
+              <app-donut-chart [chartData]="donutData"></app-donut-chart>
+              <div class="ifp-home__dropdown">
+                <app-dropdown-with-arrows></app-dropdown-with-arrows>
+                <img
+                  src="../../../../../assets/images/region.png"
+                  alt="region"
+                />
+              </div>
+            </div>
+            <div class="ifp-home__box-outer ifp-home--align-right">
+              <div class="ifp-home__box">
+                <div class="ifp-home__color-txt">Non-Emirate</div>
+                <div class="ifp-home__value big">{{householdOverview?.nonEmirati?.[0]?.totalHouseholds??'-'}}</div>
+                <div class="ifp-home__percentage">{{householdOverview?.nonEmirati?.[0]?.percentage??'-'}}</div>
+              </div>
+              <div class="ifp-home__box">
+                <div class="ifp-home__small-txt">Average household size</div>
+                <div class="ifp-home__value">{{householdOverview?.nonEmirati?.[0]?.averageHouseholdSize??'-'}}</div>
+                <div class="ifp-home__person">
+                  <img
+                    src="../../../../../assets/images/persons-img.png"
+                    alt="person-img"
+                  />
+                </div>
+              </div>
+              <div class="ifp-home__emirates-fam">
+                  <img src="../../../../../assets/images/non-emirates-family.png" alt="family">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      } @else if (slide.component === 'household') {
+      <app-household-characteristics></app-household-characteristics>
+      } @else if (slide.component === 'another') {
+      <div>Another Slide Content</div>
+      }
+    </div>
+    } }
+
+    <!-- <div class="ifp-home__dots">
+      @for (slide of slides; let i = $index; track $index) {
+      <div
+        class="dot-wrapper"
+        [class.active]="i === currentSlide"
+        (click)="goToSlide(i)"
+      >
+        @if (i === currentSlide) {
+        <div class="dot-label">
+          <div class="dot-text">
+            <div>{{ slide.labelLine1 }}</div>
+            <div>{{ slide.labelLine2 }}</div>
+          </div>
+          <div class="dot-circle selected"></div>
+        </div>
+        } @else {
+        <div class="dot-circle"></div>
+        }
+      </div>
+      }
+    </div> -->
+
+    <div class="ifp-dots">
+      @for (item of slides;let i = $index; track $index) {
+      <div class="ifp-dots__contents" [class.active]="i === currentSlide"
+        (click)="goToSlide(i)">
+        <div class="ifp-dots__desc">
+          <div class="ifp-dots__text">{{ item.labelLine1 }}</div>
+          <div class="ifp-dots__text">{{ item.labelLine2 }}</div>
+        </div>
+        <div class="ifp-dots__dot"></div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

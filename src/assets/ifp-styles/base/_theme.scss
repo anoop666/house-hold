@@ -1,0 +1,150 @@
+@use "../../../assets/ifp-styles/abstracts/index" as *;
+
+.ifp-dark-theme:not(.ifp-light-theme) {
+  .ifp-header {
+    &__notif-list {
+      &:hover {
+        background-color: $ifp-color-section-white;
+      }
+    }
+    &__search-input {
+      background-color: $ifp-color-grey-5 !important;
+    }
+  }
+  .ifp-card-heading,
+  .ifp-card-heading::before,
+  .ifp-card-heading::after{
+  // .ifp-footer,
+  // .ifp-footer__logo {
+    background-color: #182946 !important;
+  }
+
+  .ifp-indicator-tab {
+    &__analytical,
+    &__htab,
+    &__indicator-wrapper {
+      .highcharts-background {
+        fill: $ifp-color-section-white;
+      }
+      .highcharts-grid-line {
+        stroke: $ifp-color-chart-dark;
+      }
+      // background-color: $ifp-color-section-white;
+    }
+  }
+
+  .ifp-search {
+    &__label-accordion {
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9.316 5.327'%3E%3Cpath id='Icon_ionic-ios-arrow-down' data-name='Icon ionic-ios-arrow-down' d='M10.847,14.967l3.523-3.525a.663.663,0,0,1,.94,0,.671.671,0,0,1,0,.943l-3.991,3.994a.665.665,0,0,1-.918.019L6.382,12.388a.666.666,0,1,1,.94-.943Z' transform='translate(-6.188 -11.246)' fill='%23fff'/%3E%3C/svg%3E") !important;
+      }
+    }
+  }
+
+  .highcharts-background {
+    fill: $ifp-color-section-white;
+  }
+  .highcharts-grid-line {
+    stroke: $ifp-color-chart-dark;
+  }
+  .highcharts-alternate-grid {
+    fill: $ifp-color-section-white;
+  }
+  .ifp-analysis-card {
+    .highcharts-background {
+      fill: $ifp-color-section-white;
+    }
+  }
+  //highcharts-label highcharts-data-label highcharts-data-label-color-2
+  .highcharts-xaxis-labels text,
+  .highcharts-yaxis-labels text,
+  // .highcharts-data-label text,
+  .highcharts-legend-item text,
+  // .highcharts-axis-title,
+  .highcharts-title,
+  .highcharts-subtitle,
+  .highcharts-caption {
+    color: $ifp-color-white-global !important;
+    fill: $ifp-color-white-global !important;
+  }
+  .ifp-scenario,
+  .ifp-node {
+    &__chart{
+      .highcharts-background {
+        fill: $ifp-color-section-white;
+      }
+      .highcharts-grid-line {
+        stroke: $ifp-color-chart-dark;
+      }
+    }
+  }
+
+  // Need optimization
+  .ifp-tab {
+    &__item--active,
+    &__item:hover {
+      .ifp-domain-icon__img--light {
+        display: none !important;
+      }
+      .ifp-domain-icon__img--dark {
+        display: block !important;
+      }
+    }
+    &--navbar {
+      background-color: $ifp-color-grey-7 !important;
+    }
+  }
+  // .ifp-domain-card:hover,
+  // .ifp-domain-card--active{
+  //    .ifp-card {
+  //     .ifp-domain-icon__img--light {
+  //       display: none !important;
+  //     }
+  //     .ifp-domain-icon__img--dark {
+  //       display: block !important;
+  //     }
+  //   }
+  // }
+  .geo-main-card {
+    background-color: $ifp-color-section-white !important;
+  }
+  .ifp-population {
+    .new-card-body-style {
+      background-color: transparent !important;
+    }
+  }
+  .ifp-custom-tabs {
+    .nav-link {
+      color: $ifp-color-tertiary-text !important;
+      background-color: #282B2F !important;
+      border: 1px solid #282B2F !important;
+      &.active {
+        background-color: $ifp-color-white !important;
+      }
+    }
+  }
+  .ifp-btn--disabled,
+  .ifp-btn--disabled:hover {
+    color: $ifp-color-white-50 !important;
+  }
+}
+
+// Need optimization
+.ifp-light-theme {
+  &--download {
+    .highcharts-xaxis-labels text,
+    .highcharts-yaxis-labels text,
+    .highcharts-data-label text,
+    .highcharts-axis-title {
+      color: $ifp-color-grey-9 !important;
+      fill: $ifp-color-grey-9 !important;
+      font-family: $ff-noto-sans !important;
+    }
+    .highcharts-data-label tspan {
+      stroke: none;
+    }
+    .ifp-corl-card__title {
+      color: $ifp-color-grey-9 !important;
+    }
+  }
+}

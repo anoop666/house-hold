@@ -1,0 +1,37 @@
+@use '../../../../../assets/ifp-styles/abstracts/index' as *;
+
+.tenure-chart-container {
+  background: $ifp-color-white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+
+
+
+  .chart-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+
+    .tenure-chart {
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+
+
+  // Responsive design
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
+
+
+
+  // Dark mode support (if needed)
+  @media (prefers-color-scheme: dark) {
+    background: $ifp-color-grey-bg;
+    color: $ifp-color-white;
+  }
+}

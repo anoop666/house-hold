@@ -1,0 +1,35 @@
+// Font family
+$ff-noto-sans: 'Noto Sans', sans-serif;
+$ff-noto-sans-arabic: 'Noto Sans Arabic', 'Noto Sans', sans-serif;
+$ff-tajawal: 'Tajawal', sans-serif;
+
+// Font weights
+$fw-extra-light: 200;
+$fw-light: 300;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semi-bold: 600;
+$fw-bold: 700;
+$fw-extra-bold: 800;
+$fw-black: 900;
+
+$fs-base: 1rem !default; // 1rem = 10px (as in base.scss)
+
+$ifp-fs-1: $fs-base * 1 !default;
+$ifp-fs-2: $fs-base * 1.2 !default;
+$ifp-fs-3: $fs-base * 1.4 !default;
+$ifp-fs-4: $fs-base * 1.6 !default;
+$ifp-fs-5: $fs-base * 1.8 !default;
+$ifp-fs-6: $fs-base * 2 !default;
+$ifp-fs-7: $fs-base * 2.2 !default;
+$ifp-fs-8: $fs-base * 2.4 !default;
+$ifp-fs-9: $fs-base * 2.6 !default;
+$ifp-fs-10: $fs-base * 2.8 !default;
+$ifp-fs-11: $fs-base * 3 !default;
+$ifp-fs-12: $fs-base * 3.2 !default;
+$ifp-fs-13: $fs-base * 3.4 !default;
+$ifp-fs-14: $fs-base * 3.7 !default;
+
+$ifp-font-size-sm: $ifp-fs-2;
+$ifp-font-size-md: $ifp-fs-4;
+$ifp-font-size-lg: $ifp-fs-6;

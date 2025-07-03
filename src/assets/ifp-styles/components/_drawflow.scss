@@ -1,0 +1,45 @@
+@use "../../../assets/ifp-styles/abstracts/index" as *;
+
+.ifp-p-adv {
+  &__drawflow {
+    .output,
+      .input {
+        margin: $spacer-1;
+
+      }
+      .input {
+        &::before {
+          content: attr(data-anchor);
+          color: $ifp-color-grey-9;
+          font-weight: $fw-semi-bold;
+          min-width: 16px;
+          display: block;
+          text-align: center;
+          position: absolute;
+          left: calc(100% - 5px);
+          top: $spacer-0;
+        }
+      }
+      .output {
+        &::before {
+          content: attr(data-anchor);
+          padding: $spacer-0 ($spacer-1 - 2);
+          color: $ifp-color-grey-9;
+          font-weight: $fw-semi-bold;
+          min-width: 16px;
+          display: block;
+          text-align: center;
+          position: absolute;
+          right: 100%;
+          top: $spacer-0;
+        }
+      }
+  }
+  &__node--active {
+    .output, .input {
+      &::before {
+        color: $ifp-color-white;
+      }
+    }
+  }
+}

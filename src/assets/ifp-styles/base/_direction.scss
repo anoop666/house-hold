@@ -1,0 +1,49 @@
+@use "../../../assets/ifp-styles/abstracts/variables/icon-variables-v1" as *;
+
+[dir="rtl"] {
+  .ifp-icon-right-arrow {
+    &:before {
+      content: $ifp-icon-left-arrow;
+    }
+  }
+
+  .ifp-icon-left-arrow {
+    &:before {
+      content: $ifp-icon-right-arrow;
+    }
+  }
+
+  .ifp-icon-leftarrow {
+    &:before {
+      content: $ifp-icon-rightarrow;
+    }
+  }
+
+  .ifp-icon-rightarrow {
+    &:before {
+      content: $ifp-icon-leftarrow;
+    }
+  }
+
+  .ifp-icon-link-curve {
+    transform: rotateY(180deg);
+    display: inline-block;
+  }
+
+
+    .ifp-ai {
+      &__sidebar {
+        border-radius: 0 0 20px 0 !important;
+      }
+    }
+  // .ifp-icon-dockside-right {
+  //   &:before {
+  //     content: $ifp-icon-dockside-left;
+  //   }
+  // }
+  // .ifp-icon-dockside-left {
+  //   &:before {
+  //     content: $ifp-icon-dockside-right;
+  //   }
+  // }
+}

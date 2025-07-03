@@ -1,0 +1,36 @@
+<div class="donut-container">
+  @if(type==='half'){
+  <div class="stat left">
+    <div class="icon male"><img [src]="icon1" alt=""></div>
+    <div class="label">{{name1}}</div>
+    <div class="value">{{ count1 | number }}</div>
+    <div class="label">{{ ((count2 / total) * 100) | number:'1.0-0' }}%</div>
+  </div>
+  }
+
+  <div class="chart-wrapper">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions"
+      style="width: 250px; height: 250px; display: block;"
+    ></highcharts-chart>
+  @if(type==='half'){
+    <div class="inner-shadow-ring"></div>
+  }
+    <div class="center-circle">
+      <div class="center-text">
+        <div class="total">{{ total | number }}</div>
+        <div class="label">Total</div>
+      </div>
+    </div>
+  </div>
+
+@if(type==='half'){
+  <div class="stat right">
+    <div class="icon female"><img [src]="icon2" alt=""></div>
+    <div class="label">{{name2}}</div>
+    <div class="value">{{ count2 | number }}</div>
+    <div class="label">{{ ((count2 / total) * 100) | number:'1.0-0' }}%</div>
+  </div>
+}
+</div>

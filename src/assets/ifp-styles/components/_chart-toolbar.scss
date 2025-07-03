@@ -1,0 +1,365 @@
+@use "../abstracts/index" as *;
+
+.ifp-chart-toolbar {
+  &__tool-item {
+    padding: $spacer-3;
+    .ifp-btn {
+      .ifp-icon {
+        font-size: 2.2rem;
+      }
+      &--disabled {
+        pointer-events: none;
+      }
+    }
+
+    &--active {
+      color: $ifp-color-link;
+      position: relative;
+      cursor: default;
+
+      &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 15px solid $ifp-color-chart-sidebar;
+        position: absolute;
+        top: 50%;
+        right: -1px;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__action-box {
+    padding: $spacer-5 $spacer-3;
+    border-bottom: 1px solid $ifp-color-grey-3;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &--settings {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+  }
+
+  &__right-title {
+    color: $ifp-color-secondary-grey;
+    margin-bottom: $spacer-3;
+    font-size: 1.6rem;
+
+    &--bold {
+      // font-family: $ff-tajawal;
+      font-weight: $fw-extra-bold;
+      color: $ifp-color-primary-blue;
+    }
+  }
+
+  &__right-desc {
+    color: $ifp-color-secondary-grey;
+    margin-bottom: $spacer-4;
+  }
+
+  &__download-icon {
+    min-width: 50px;
+    height: 50px;
+  }
+
+  &__checkbox-label {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    padding-left: $spacer-5;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $ifp-color-grey-1;
+      border-radius: 5px;
+
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: -1px;
+      width: 4px;
+      height: 10px;
+      border: solid $ifp-color-white-global;
+      border-width: 0px 2px 2px 0px;
+      transform: translate(-50%, 50%) rotate(45deg);
+      opacity: 0;
+    }
+
+    &--hide-chk {
+      padding-left: $spacer-0;
+
+      &::before,
+      &::after {
+        content: none
+      }
+    }
+
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked+ {
+      .ifp-chart-toolbar__checkbox-label::before {
+        background-color: $ifp-color-secondary-blue;
+      }
+
+      .ifp-chart-toolbar__checkbox-label::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__counter-title {
+    margin-right: $spacer-1;
+  }
+
+  &__counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__range-selector {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+  }
+
+  &__drive-outer {
+    padding: $spacer-3 $spacer-4;
+    margin: $spacer-0 (
+      -$spacer-3
+    );
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: $ifp-color-white-dark-hover;
+  }
+
+  &--active {
+    background-color: $ifp-color-white;
+
+    .ifp-chart-toolbar__range-selector {
+      max-height: 200px;
+      overflow: visible;
+      padding-top: $spacer-5;
+    }
+  }
+
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+&__download-wrapper {
+  display: flex;
+  margin: $spacer-0 (
+    -$spacer-1
+  );
+
+&.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+}
+
+&__download-item {
+  margin: $spacer-0 $spacer-1;
+  cursor: pointer;
+}
+
+&__button-icon {
+  margin-left: $spacer-2;
+  margin-top: $spacer-4;
+  display: block;
+}
+
+&__checkbox-outer {
+  margin-bottom: $spacer-3;
+}
+
+&__switch-icons {
+  display: inline-block;
+  margin-bottom: $spacer-3;
+  @include ifp-scroll-x(transparent, $ifp-color-grey-3, 10px, 10px);
+  width: 100%;
+
+  app-ifp-category-label {
+    .ifp-category-label {
+      &__icon {
+        margin: $spacer-0;
+      }
+
+      &__txt {
+        display: none;
+      }
+    }
+  }
+}
+
+&__switch-sec {
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacer-3;
+}
+
+&__label {
+  color: $ifp-color-black;
+  margin-left: $spacer-2;
+}
+
+&__history {
+  margin-top: auto;
+}
+
+&__history-print {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+}
+
+&__terms {
+  display: flex;
+  margin-top: $spacer-3;
+
+  &--disable {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+&__driver {
+  max-height: 515px;
+  @include ifp-scroll-y(transparent, $ifp-color-grey-1, 4px, 8px);
+}
+
+&__compare-item {
+  margin-bottom: $spacer-3;
+}
+
+&__info {
+  margin: $spacer-0 $spacer-1;
+  position: relative;
+  top: -1px;
+  .ifp-info--small {
+    pointer-events: auto !important;
+    .ifp-tooltip {
+      min-width: 170px !important;
+    }
+  }
+}
+
+&--disabled {
+  .ifp-btn {
+    color: $ifp-color-grey-disabled;
+    pointer-events: none;
+  }
+}
+
+  &__insight {
+    margin: $spacer-0 (-$spacer-3);
+    .ifp-chart-insight__input-wrapper {
+      padding: $spacer-0 $spacer-3;
+    }
+  }
+}
+
+[dir="rtl"] {
+  .ifp-chart-toolbar {
+    &__tool-item {
+      &--active {
+        &::after {
+          border-left: 15px solid $ifp-color-chart-sidebar;
+          border-right: 0;
+          left: -1px;
+          right: auto;
+        }
+      }
+    }
+    &__checkbox-label {
+      padding-right: $spacer-5;
+      padding-left: $spacer-0;
+      &::before {
+        right: 0;
+        left: auto;
+      }
+      &::after {
+        right: 10px;
+        // border-width: 0px 2px 2px 0px;
+        transform: translate(50%, 50%) rotate(45deg);
+      }
+      &--hide-chk {
+        padding-right: $spacer-0;
+      }
+    }
+    &__button-icon {
+      margin-right: $spacer-2;
+      margin-left: $spacer-0;
+    }
+    &__switch-icons {
+      app-ifp-category-label {
+        .ifp-category-label {
+          &__icon {
+            margin: $spacer-0 !important;
+          }
+        }
+      }
+    }
+    &__label {
+      margin-right: $spacer-2;
+      margin-left: auto;
+    }
+  }
+}
+
+@include desktop-sm {
+  .ifp-chart-toolbar {
+    &__drive-outer {
+      padding: $spacer-3;
+    }
+  }
+}
+
+@include mobile-tablet {
+  .ifp-chart-toolbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: $ifp-color-grey-3;
+    padding: $spacer-0 $spacer-2;
+    &__tool-item {
+      padding: $spacer-2;
+      .ifp-btn .ifp-icon {
+        font-size: $ifp-fs-4;
+      }
+      &--active {
+        &::after {
+          content: none;
+        }
+      }
+    }
+    &__right-desc {
+      margin-bottom: $spacer-3;
+    }
+    &__action-box {
+      padding: $spacer-3;
+    }
+  }
+}

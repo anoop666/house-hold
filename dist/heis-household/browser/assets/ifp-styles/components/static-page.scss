@@ -1,0 +1,88 @@
+@use "../../../assets/ifp-styles/abstracts/index" as *;
+.ifp-static {
+  padding: $spacer-6 $spacer-0;
+  background-color: $ifp-color-section-white;
+  margin-top: $spacer-4;
+  .ifp-module-heading {
+    margin-bottom: $spacer-4;
+  }
+  &__box {
+    border-radius: 10px;
+    margin-bottom: $spacer-4;
+    &:last-child {
+      margin-bottom: $spacer-0;
+    }
+  }
+  &__content {
+    line-height: 1.7;
+    margin-bottom: $spacer-4;
+    &:last-child {
+      margin-bottom: $spacer-0;
+    }
+  }
+  &__title {
+    font-size: $ifp-fs-8;
+    margin-bottom: $spacer-4;
+    font-weight: $fw-bold;
+  }
+  &__sub-title {
+    font-size: $ifp-fs-5;
+    margin-bottom: $spacer-2;
+    font-weight: $fw-bold;
+  }
+  &--modal {
+    background-color: $ifp-color-white;
+    padding: $spacer-0;
+    border-radius: 5px;
+    margin-top: $spacer-0;
+    .ifp-module-heading {
+      margin-bottom: $spacer-0;
+    }
+    .ifp-static {
+      &__head {
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0px 2px 6px rgba(0,0,0,0.16);
+        padding: $spacer-4;
+        background-color: $ifp-color-white;
+        position: relative;
+        z-index: 1;
+      }
+      &__close {
+        font-size: 2rem;
+        margin-left: $spacer-4;
+        margin-right: $spacer-4;
+        cursor: pointer;
+      }
+      &__btn {
+        justify-content: flex-end;
+        display: flex;
+
+        padding-bottom: $spacer-4;
+      }
+      &__cnt {
+        max-height: calc(100vh - 150px);
+        overflow: auto;
+        padding: $spacer-4 $spacer-4 0;
+        @include ifp-scroll-y(transparent, $ifp-color-grey-1, 4px, 8px);
+      }
+    }
+  }
+}
+
+@include mobile {
+  .ifp-static {
+    padding: $spacer-4 $spacer-0;
+    &__box {
+      padding: $spacer-3;
+    }
+    &__title {
+      font-size: $ifp-fs-5;
+      margin-bottom: $spacer-3;
+    }
+    &__sub-title {
+      font-size: $ifp-fs-4;
+      margin-bottom: $spacer-2;
+    }
+  }
+}

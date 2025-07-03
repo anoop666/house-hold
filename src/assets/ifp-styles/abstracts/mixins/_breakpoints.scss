@@ -1,0 +1,86 @@
+@use "../variables/layout" as *;
+// Mobile only css. @media(max-width: 599.98px)
+@mixin mobile {
+  @media (max-width: ($bp-mobile - 0.02)) {
+    @content;
+  }
+}
+
+// Desktop only css. @media(max-width: 1280px)
+@mixin desktop-sm {
+  @media (max-width: $bp-desktop) {
+    @content;
+  }
+}
+
+// iPad
+
+@mixin ipad {
+  @media (max-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+// Tablet only css. @media (max-width: 1024px) and (min-width: 599.98px)
+@mixin tablet-horizondal {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+
+// Tablet only css. @media (max-width: 1024px) and (min-width: 599.98px)
+@mixin tablet {
+  @media (max-width: ($bp-tablet)) and (min-width:( $bp-mobile - 0.02)) {
+    @content;
+  }
+}
+
+// Mobile and Tablet only css. @media(max-width: 1023.98px)
+@mixin mobile-tablet {
+  @media (max-width: ($bp-tablet - 0.02)) {
+    @content;
+  }
+}
+
+// Desktop only css. @media(max-width: 1366px)
+@mixin desktop-lg {
+  @media (max-width: 1366px) {
+    @content;
+  }
+}
+
+// Large Desktop. @media(min-width: 1600px)
+@mixin desktop-xl {
+  @media (max-width: 1600px) {
+    @content;
+  }
+}
+
+// Only large desktop
+@mixin only-desktop-xl {
+  @media (min-width: 1366px) and (max-width: 1600px) {
+    @content;
+  }
+}
+
+@mixin desktop-xxl {
+  @media (max-width: 1920px) {
+    @content;
+  }
+}
+
+// Body height excluding header
+$ifp-header-height: 263px;
+$ifp-header-height-sticky: 75px;
+$ifp-header-height-inner: 111px;
+
+@include desktop-sm {
+  $ifp-header-height: 111px;
+  $ifp-header-height-sticky: 75px;
+}
+
+@include mobile-tablet {
+  $ifp-header-height: 141px;
+  $ifp-header-height-sticky: 141px;
+}

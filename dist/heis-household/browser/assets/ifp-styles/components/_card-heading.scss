@@ -1,0 +1,167 @@
+@use '../../../assets/ifp-styles/abstracts' as *;
+.ifp-card-heading {
+  // $ifp-color-primary-blue: #05264A;
+  display: inline-block;
+  z-index: 1;
+  padding: 10px 20px;
+  background: $ifp-color-primary-blue;
+  font-size: $ifp-fs-6;
+  font-weight: $fw-semi-bold;
+  position: relative;
+  border-radius: 0 0 12px 12px;
+  color:$ifp-color-white-global;
+  text-transform: capitalize;
+  min-width: 260px;
+  &__wrapper {
+    text-align: center;
+  }
+  &::after {
+  	content: "";
+    display: block;
+    position: absolute;
+    right:-30px;
+    top:0;
+    width: 30px;
+    height: 20px;
+    background: $ifp-color-primary-blue;
+    $mask-outside: radial-gradient(22px at  74% 104%,#0000 98%,#000) 100%  100%/100% 100%  no-repeat;
+   -webkit-mask: $mask-outside;
+          mask: $mask-outside;
+
+  }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left:-30px;
+    top:0;
+    width: 30px;
+    height: 20px;
+    background:$ifp-color-primary-blue;
+    $mask-outside: radial-gradient(22px at 26% 104% ,#0000 98%,#000) 0 0 /100% 100% no-repeat;
+    -webkit-mask: $mask-outside;
+          mask: $mask-outside;
+  }
+  &__rect {
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    border: 2px solid $ifp-color-white-global;
+    border-radius: 5px;
+    transition: 0.3s;
+
+    &--small {
+      margin: $spacer-1 $spacer-1;
+      width: 13px;
+      min-width: 13px;
+    }
+
+    &--large {
+      margin: $spacer-1 $spacer-1;
+      width: 26px;
+      min-width: 26px;
+    }
+
+    &:hover {
+      border-color: $ifp-color-white-global;
+    }
+  }
+  &__fill {
+    background-color: $ifp-color-white-global;
+    cursor: default;
+  }
+  &__title {
+    margin-left: $spacer-3;
+    font-size: $ifp-fs-8;
+    font-weight: $fw-bold ;
+    color: $ifp-color-white-global;
+
+    &--edit {
+      margin-left: $spacer-0;
+    }
+  }
+  &--tools {
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    margin: $spacer-0 auto;
+  }
+  &--center {
+    justify-content: center;
+  }
+  &__edit-button {
+    .ifp-icon {
+      font-size: $ifp-fs-6;
+    }
+  }
+  &__heading-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: $spacer-0 (-$spacer-2);
+    &--right {
+      padding-left: 10px;
+      border-left: 1px solid $ifp-color-white-global;
+    }
+  }
+  &__action {
+    font-size: $ifp-fs-6;
+    margin: $spacer-0 $spacer-2;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      color: $ifp-color-white-global;
+    }
+  }
+  &__title-edit {
+    .ifp-edit {
+      border-bottom: 1px solid $ifp-color-white-global;
+      &__input,
+      .ifp-icon {
+        color: $ifp-color-white-global !important;
+      }
+    }
+  }
+  .ifp-icon-handler {
+    cursor: move;
+  }
+}
+
+[dir="rtl"] {
+  .ifp-card-heading {
+    &__title {
+      margin-right: $spacer-3;
+      margin-left: $spacer-0;
+      &--edit {
+        margin-right: $spacer-0;
+      }
+    }
+    &__heading-left {
+      margin-right: auto;
+      margin-left: $spacer-0;
+      &--right {
+        padding-right: 10px;
+        border-right: 1px solid $ifp-color-white-global;
+        padding-left: $spacer-0;
+        border-left: none;
+      }
+    }
+  }
+}
+
+@include desktop-sm {
+  .ifp-card-heading {
+    &__title {
+      margin-left: $spacer-0;
+      margin-top: $spacer-1;
+      font-size: $ifp-fs-5;
+    }
+  }
+}
+
+@include mobile {
+  .ifp-card-heading {
+    font-size: $ifp-fs-5;
+    min-width: 240px;
+  }
+}

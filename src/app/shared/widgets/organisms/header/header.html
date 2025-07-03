@@ -1,0 +1,26 @@
+<header class="ifp-header">
+  <div class="ifp-container">
+    <div class="ifp-header__wrapper">
+      <img
+        src="/assets/images/brand-logo.svg"
+        alt="logo"
+        class="ifp-header__logo"
+      />
+      <div class="ifp-header__contents">
+        <button type="button" class="ifp-header__hamburger" (click)="toggleBtn()">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="ifp-header__dropdown" [ngClass]="{'active': dropdownShow}">
+          <button type="button" class="ifp-header__close">
+            <img src="../../../../../assets/images/close-circle.svg" alt="close" (click)="toggleBtn()" >
+          </button>
+          <div class="ifp-header__nav active"> <img src="../../../../../assets/images/overview-icon.svg" alt="icon">Overview</div>
+          <div class="ifp-header__nav">Calulator</div>
+          <div class="ifp-header__nav">Offical indicators</div>
+          <div class="ifp-header__nav">Analytical apps</div>
+          <div class="ifp-header__nav">Methodology</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

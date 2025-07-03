@@ -1,0 +1,44 @@
+@use "../../ifp-styles/abstracts/index" as *;
+.toast-container {
+  pointer-events: all;
+}
+.ifp-toaster {
+  font-size: $ifp-fs-4;
+  min-width: 300px;
+  padding: $spacer-3 $spacer-4;
+  border-radius: 5px;
+  border: 1px solid;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.24);
+  background-image: none;
+  margin: $spacer-1 $spacer-0;
+  &.toast-success {
+    border-color: $ifp-color-green-dark-2;
+    color: $ifp-color-green-dark-2;
+    background-color: $ifp-color-green-light;
+  }
+  &.toast-error {
+    border-color: $ifp-color-red;
+    color: $ifp-color-red;
+    background-color: $ifp-color-red-light;
+  }
+  &.toast-info {
+    border-color: $ifp-color-violet;
+    color: $ifp-color-violet;
+    background-color: $ifp-color-violet-light;
+  }
+  &.toast-warning {
+    border-color: $ifp-color-orange;
+    color: $ifp-color-orange;
+    background-color: $ifp-color-orange-light;
+  }
+  .toast-close-button {
+    color: inherit;
+    span {
+      font-size: 2.4rem;
+      font-weight: $fw-regular;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

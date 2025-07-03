@@ -1,0 +1,11 @@
+<div class="ifp-dwell-tile__outer" [ngClass]="{'ifp-dwell-tile--vechicles': vechicles}">
+  <div class="ifp-dwell-tile__img">
+    <img src="/assets/images/{{imgIcon}}" alt="icon" />
+  </div>
+  <div class="ifp-dwell-tile__head">{{tileHead}}</div>
+  <div class="ifp-dwell-tile__value">{{tileValue}}</div>
+  <div class="ifp-dwell-tile__percentage">{{tilepercentage}}</div>
+  <div class="ifp-dwell-tile__progress-outer">
+    <span class="ifp-dwell-tile__progress" [style.width]="currentProgress"></span>
+  </div>
+</div>

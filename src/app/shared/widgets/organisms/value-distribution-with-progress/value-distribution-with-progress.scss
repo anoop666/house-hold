@@ -1,0 +1,82 @@
+@use "../../../../../assets/ifp-styles/abstracts/index" as *;
+
+.ifp-value-dist {
+  &__wrapper {
+    display: flex;
+    border: 1px solid #D9E1E7;
+    border-radius: 10px;
+  }
+
+  &__currency-format {
+    width: 30px;
+    border-right: 1px solid #D9E1E7;
+    padding: $spacer-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 10px;
+      height: auto;
+      display: block;
+    }
+  }
+
+    &__range {
+    padding: $spacer-2;
+    font-size: 14px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__outer,
+  &__progress-wrapper {
+    display: flex;
+  }
+
+  &__outer {
+    width: 40%;
+    border-right: 1px solid #D9E1E7;
+  }
+
+  &__progress-wrapper {
+    width: 60%;
+    padding: $spacer-2;
+    padding-left: $spacer-4;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__progress-outer {
+    width: 85%;
+    height: 12px;
+    border-radius: 5px;
+    background-color: #e0e0e0;
+    position: relative;
+    justify-content: space-between;
+  }
+
+  &__progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 25%;
+    border-radius: 5px;
+    background-color: #4CAF50;
+  }
+
+  &__bold-value {
+    color: #000000;
+    font-weight: $fw-bold;
+    margin-right: $spacer-2;
+  }
+
+  &__percentage {
+    font-weight: $fw-semi-bold;
+    color: #666666;
+    font-size: 10px;
+    margin-left: $spacer-2;
+  }
+}

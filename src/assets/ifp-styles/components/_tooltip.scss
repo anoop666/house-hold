@@ -1,0 +1,257 @@
+@use '../../../assets/ifp-styles/abstracts' as *;
+.ifp-tooltip {
+  display: inline-block;
+  position: absolute;
+  font-size: $ifp-fs-2;
+  text-align: center;
+  color: $ifp-color-white;
+  padding: $spacer-2 $spacer-3;
+  background-color: $ifp-color-secondary-grey;
+  border-radius: 5px;
+  box-shadow: 0px 5px 15px 0px rgba(0,0,0,0.3);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  font-weight: $fw-regular;
+  max-width: 400px;
+  &__title {
+    display: block;
+    font-weight: $fw-semi-bold;
+    margin-bottom: $spacer-1;
+  }
+  &--text-left {
+    text-align: start;
+  }
+  &--show {
+    opacity: 1;
+  }
+  &--max-width-none {
+    max-width:none ;
+  }
+  // &::before {
+  //   content: "";
+  //   width: 100%;
+  //   height: 10px;
+  //   position: absolute;
+  //   top: -9px;
+  //   left: 0;
+  // }
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   border-style: solid;
+  //   // margin-left: -5px;
+  //   border-width: 5px;
+  // }
+  &--top {
+    border-style: solid;
+    border-width: 5px;
+    position: absolute;
+    top: 100%;
+    // left: 50%;
+  // left: 8px;
+
+    margin-bottom: -1px;
+    border-color: $ifp-color-secondary-grey transparent transparent transparent;
+    // transform: translateX(-50%);
+    // &::after {
+    //   top: 100%;
+    //   // left: 50%;
+    //   left: 8px;
+    //   // transform: translateX(50%);
+    //   margin-bottom: -1px;
+    //   border-color: $ifp-color-secondary-grey transparent transparent transparent;
+    // }
+  }
+  &--bottom {
+    border-style: solid;
+    border-width: 5px;
+    position: absolute;
+    bottom: 100%;
+    margin-bottom: -1px;
+    border-color: transparent transparent $ifp-color-secondary-grey transparent;
+
+  }
+  &--left {
+    &::after {
+      top: 100%;
+      right: 5px;
+      border-color: $ifp-color-secondary-grey transparent transparent transparent;
+    }
+  }
+  &--right {
+    &::after {
+      bottom: 100%;
+      right: 5px;
+      border-color: transparent transparent $ifp-color-secondary-grey transparent;
+    }
+  }
+}
+
+.ifp-chart-tooltip {
+  // text-align: center;
+  .highcharts-tooltip-box {
+    fill: none;
+  }
+  & > span {
+    position: relative !important;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    display: block;
+    border-radius: 10px;
+  }
+  &__wrapper {
+    font-family: $ff-tajawal;
+    background-color: $ifp-color-black-light;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  &__header,
+  &__value {
+    font-size: 1.4rem;
+    padding: $spacer-2 $spacer-3;
+    display: flex;
+    width: 100%;
+  }
+  &__header {
+    background-color: $ifp-color-grey-med;
+  }
+  &__mark-head,
+  &__mark-value {
+    display: block;
+  }
+  &__mark-outer{
+    padding-bottom: $spacer-1;
+    &:last-child {
+      padding-bottom: $spacer-0;
+    }
+  }
+  &__mark-value {
+    margin-top: $spacer-1;
+    font-weight: $fw-semi-bold;
+  }
+  &__usage {
+    font-family: $ff-noto-sans;
+    background-color: $ifp-color-secondary-grey;
+    color: $ifp-color-white;
+    border-radius: 9px;
+    min-width: 60px;
+    padding: $spacer-2;
+    text-align: center;
+    &--circular {
+      display: flex;
+      background-color: $ifp-color-primary-grey-70;
+      .ifp-chart-tooltip__usage-value {
+        font-weight: $fw-semi-bold;
+        padding-inline: $spacer-2;
+        border-inline-start: 1px solid $ifp-color-white;
+        &:first-of-type {
+          border: none;
+        }
+        &:last-child {
+          padding-inline-end: 0;
+        }
+      }
+    }
+  }
+  &--custom {
+    .ifp-chart-tooltip {
+      &__header,
+      &__value {
+        display: block;
+      }
+      &__value:empty {
+        padding: $spacer-0;
+      }
+    }
+  }
+}
+.ifp-chart-tree-tooltip {
+  text-align: center;
+  .highcharts-tooltip-box {
+    fill: none;
+  }
+  &>span {
+    padding: $spacer-3;
+    display: block;
+    background-color: $ifp-color-black-light;
+    left: 0;
+    top: 0;
+    border-radius: 7px;
+  }
+
+  &__wrapper {
+    background-color: $ifp-color-black-light;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__header,
+  &__value {
+    width: 100%;
+    display: block;
+    font-size: 1.4rem;
+    padding: 12px $spacer-2;
+  }
+
+  &__header {
+    padding: $spacer-2;
+    background-color: $ifp-color-grey-med;
+  }
+}
+.ifp-sankey-tooltip {
+  &__wrapper {
+    font-family: $ff-noto-sans;
+    background-color: $ifp-color-section-white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px $ifp-color-black-16;
+    padding: $spacer-2;
+  }
+  &__title {
+    font-size: $ifp-fs-2;
+    color: $ifp-color-grey-14;
+    font-weight: $fw-medium;
+    margin-bottom: $spacer-1;
+    &:last-child {
+      margin-bottom: $spacer-0;
+    }
+  }
+  &__value {
+    font-size: $ifp-fs-4;
+    font-weight: $fw-bold;
+  }
+}
+.highcharts-tooltip-container {
+  svg{
+    display: none;
+  }
+  .ifp-chart-tooltip__legend {
+    display: block;
+    margin-top: -6px;
+  }
+}
+
+[dir="rtl"] {
+  .ifp-tooltip {
+    &--right,
+    &--left {
+      &::after {
+        left: 5px;
+        right: auto;
+      }
+    }
+  }
+  .ifp-chart-tooltip {
+    &__wrapper {
+      direction: rtl;
+    }
+    &__value {
+      text-align: right;
+    }
+  }
+}
+
+@include mobile-tablet {
+  .ifp-tooltip {
+    // display: none;
+  }
+}

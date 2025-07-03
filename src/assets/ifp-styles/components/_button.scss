@@ -1,0 +1,395 @@
+@use '../../../assets/ifp-styles/abstracts' as *;
+.ifp-btn  {
+  font-size: 1.4rem;
+  font-weight: $fw-medium;
+  text-transform: uppercase;
+  text-align: center;
+  padding: $spacer-2 $spacer-3;
+  cursor: pointer;
+  transition: 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  white-space: nowrap;
+  background-color: transparent;
+  em,
+  .ifp-icon {
+    color: inherit;
+    font-size: inherit;
+  }
+  &__text {
+    font-size: inherit;
+  }
+  &--icon-right {
+    .ifp-icon {
+      font-size: 1.2rem;
+      margin-right: $spacer-0;
+      margin-left: $spacer-1;
+    }
+  }
+  &--spinner {
+    display: inline-block;
+    margin-left: $spacer-1;
+    margin-right:$spacer-1;
+  }
+  &--inline-icon {
+    // &:hover {
+    //   .ifp-icon {
+    //     color: $ifp-color-secondary-blue;
+    //   }
+    // }
+  }
+  &--icon-hide {
+    display: none;
+  }
+  &--menu-blue {
+    background-color: $ifp-color-blue-menu;
+    color: $ifp-color-white-global;
+    @include ignore-touch-hover {
+      &:hover {
+        background-color: $ifp-color-hover-blue;
+        color: $ifp-color-white-global;
+      }
+    }
+  }
+  &--primary {
+    color: $ifp-color-white-global;
+    border: 1px solid $ifp-color-secondary-blue;
+    background-color: $ifp-color-secondary-blue;
+    @include ignore-touch-hover {
+      &:hover {
+        border: 1px solid $ifp-color-hover-blue;
+        background-color: $ifp-color-hover-blue;
+        color: $ifp-color-white-global;
+      }
+    }
+  }
+  &--secondary {
+    background: $ifp-color-white;
+    color: $ifp-color-secondary-blue;
+    border: 1px solid $ifp-color-secondary-blue;
+    @include ignore-touch-hover {
+      &:hover {
+        color: $ifp-color-white-global;
+        border: 1px solid $ifp-color-secondary-blue;
+        background-color: $ifp-color-secondary-blue;
+      }
+    }
+    &.ifp-btn--active {
+      color: $ifp-color-white-global;
+      border: 1px solid $ifp-color-active-blue;
+      background-color: $ifp-color-active-blue;
+    }
+  }
+
+  &--tertiary {
+    color: $ifp-color-black;
+    border: 1px solid $ifp-color-grey-6;
+    .ifp-icon {
+      transition: 0.3s;
+    }
+    @include ignore-touch-hover {
+      &:hover {
+        background-color: $ifp-color-black-04;
+      }
+      &.ifp-btn--active:hover {
+        background-color: $ifp-color-violet-light;
+        border: 1px solid $ifp-color-blue-med;
+        color: $ifp-color-blue-med;
+        .ifp-icon {
+          color: $ifp-color-blue-med;
+        }
+      }
+    }
+    &.ifp-btn--active {
+      background-color: $ifp-color-violet-light;
+      border: 1px solid $ifp-color-blue-med;
+      color: $ifp-color-blue-med;
+      .ifp-icon {
+        color: $ifp-color-blue-med;
+      }
+    }
+  }
+
+  &--tertiary-blue {
+    background-color: $ifp-color-violet-light;
+    border: 1px solid $ifp-color-blue-light-2;
+    color: $ifp-color-secondary-blue;
+    .ifp-icon {
+      color: $ifp-color-blue-hover;
+    }
+    &.ifp-btn--active {
+      background-color: $ifp-color-blue-hover;
+      border: 1px solid $ifp-color-blue-hover;
+      color: $ifp-color-white-global;
+      .ifp-icon {
+        color: $ifp-color-white-global;
+      }
+    }
+  }
+
+  &--sky-blue {
+    color: $ifp-color-white-global;
+    border: 1px solid $ifp-color-sky-blue;
+    background-color: $ifp-color-sky-blue;
+    &.ifp-btn--secondary {
+      border-color: 1px solid $ifp-color-sky-blue;
+      color: $ifp-color-sky-blue;
+      background-color: transparent;
+    }
+    @include ignore-touch-hover {
+      &.ifp-btn--secondary:hover,
+      &:hover {
+        border: 1px solid $ifp-color-hover-blue;
+        background-color: $ifp-color-hover-blue;
+        color: $ifp-color-white-global;
+      }
+    }
+
+  }
+
+  &--uae-pass {
+    background-color: $ifp-color-black;
+    color: $ifp-color-white;
+  }
+
+  &--dash {
+    background: $ifp-color-grey-12;
+    border: dashed 2px $ifp-color-secondary-blue;
+    color: $ifp-color-secondary-blue;
+  }
+  @include ignore-touch-hover {
+    .ifp-btn--disabled:hover {
+      color: $ifp-color-white-global;
+      border: 1px solid $ifp-color-grey-disabled;
+      background-color: $ifp-color-grey-disabled;
+      cursor: default;
+      &:hover {
+        color: $ifp-color-white-global;
+        border: 1px solid $ifp-color-grey-disabled;
+        background-color: $ifp-color-grey-disabled;
+      }
+    }
+  }
+  &--disabled {
+    color: $ifp-color-white-global;
+    border: 1px solid $ifp-color-grey-disabled;
+    background-color: $ifp-color-grey-disabled;
+    cursor: default;
+    @include ignore-touch-hover {
+      &:hover {
+        color: $ifp-color-white-global;
+        border: 1px solid $ifp-color-grey-disabled;
+        background-color: $ifp-color-grey-disabled;
+      }
+    }
+  }
+  &--hover-blue {
+    background: $ifp-color-blue-hover;
+    border: 1px solid $ifp-color-blue-hover;
+    color: $ifp-color-white-global;
+    @include ignore-touch-hover {
+      &:hover {
+        border: 1px solid $ifp-color-secondary-blue-dark;
+        background-color: $ifp-color-secondary-blue-dark;
+      }
+    }
+  }
+
+  em {
+    margin-left: $spacer-2;
+    &:only-child {
+      margin: $spacer-0;
+    }
+  }
+
+
+  &--round {
+    // background-color: $ifp-color-primary-btn;
+    // color: $ifp-color-white-global;
+    // border-color: $ifp-color-primary-btn;
+    // border: 0px;
+    // &:hover {
+    //   background-color: $ifp-color-link;
+    //   border-color: $ifp-color-link;
+    // }
+    border-radius: 30px;
+  }
+
+  &--inline {
+    background-color:$ifp-color-transparent;
+    color: $ifp-color-white-global;
+    border: unset;
+    padding: 0 !important;
+    text-transform: none;
+    &-icon {
+      em {
+        margin: $spacer-0;
+      }
+    }
+    &.ifp-btn--disabled {
+      color: $ifp-color-grey-disabled;
+    }
+    @include ignore-touch-hover {
+      &:hover {
+        color: $ifp-color-blue-hover;
+      }
+    }
+  }
+
+  &--capitalize {
+    text-transform: capitalize;
+  }
+
+  &--sm {
+    font-size: $ifp-fs-2;
+    padding: 2px $spacer-1 !important;
+  }
+
+  &--md {
+    font-size: $ifp-fs-2;
+    padding: $spacer-1 $spacer-2 !important;
+  }
+
+  &--lg {
+    font-size: $ifp-fs-4;
+    padding: 10px 20px !important;
+  }
+
+
+
+  &--icon-left {
+    flex-direction: row-reverse;
+
+    em {
+      margin-left: $spacer-0;
+      margin-right: $spacer-2;
+    }
+  }
+
+  &--black {
+    color: $ifp-color-black;
+    @include ignore-touch-hover {
+      &:hover {
+        // color: $ifp-color-blue-hover;
+        color: $ifp-color-black;
+      }
+    }
+  }
+
+  &--blue {
+    color:  $ifp-color-secondary-blue;
+    &.ifp-btn--inline {
+      color: $ifp-color-blue-hover;
+    }
+  }
+  &--light-blue {
+    color: $ifp-color-blue-menu;
+    @include ignore-touch-hover {
+      &:hover {
+        color: $ifp-color-blue-hover;
+      }
+    }
+  }
+
+  &--white {
+    // color:  $ifp-color-white-global;
+    // &:hover {
+    //   color: $ifp-color-secondary-blue;
+    // }
+  }
+
+  &--grey {
+    color:  $ifp-color-secondary-grey;
+    @include ignore-touch-hover {
+      &:hover {
+        color: $ifp-color-secondary-blue;
+      }
+    }
+  }
+
+  &--bg-white {
+    background: $ifp-color-white-global;
+    padding: 11px 11px;
+    border: 1px solid $ifp-color-grey-7;
+    text-transform: none;
+    color:  $ifp-color-black;
+    @include ignore-touch-hover {
+      &:hover {
+        background-color: $ifp-color-link;
+        color: $ifp-color-white-global;
+      }
+    }
+    &.ifp-btn--active {
+      background-color: $ifp-color-link;
+      color: $ifp-color-white-global;
+    }
+  }
+  &--transprent-blue {
+    background-color: transparent;
+    color: $ifp-color-blue-menu;
+    border: 1px solid $ifp-color-blue-menu;
+    @include ignore-touch-hover {
+      &:hover,&.ifp-btn--active {
+        color: $ifp-color-white-global;
+        border: 1px solid $ifp-color-blue-menu;
+        background-color: $ifp-color-blue-menu;
+      }
+    }
+  }
+  &--aplhabetic {
+  text-transform: none;
+  }
+}
+
+[dir="rtl"] {
+  .ifp-btn  {
+    &--icon-right {
+      .ifp-icon {
+        margin-left: $spacer-0;
+        margin-right: $spacer-1;
+      }
+    }
+    em {
+      margin-right: $spacer-2;
+      margin-left: $spacer-0;
+      &:only-child {
+        margin: $spacer-0;
+      }
+    }
+    &--icon-left {
+      em {
+        margin-right: $spacer-0;
+        margin-left: $spacer-2;
+      }
+    }
+    &--disable-translation {
+      direction: ltr;
+      &.ifp-btn  {
+        &--icon-right {
+          .ifp-icon {
+            margin-left: $spacer-1;
+            margin-right:   $spacer-0;
+          }
+        }
+        em {
+          margin-right: $spacer-0;
+          margin-left: $spacer-2;
+          &:only-child {
+            margin: $spacer-0;
+          }
+        }
+        &--icon-left {
+          em {
+            margin-right: $spacer-2;
+            margin-left:   $spacer-0;
+          }
+        }
+      }
+      .ifp-icon-rightarrow {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

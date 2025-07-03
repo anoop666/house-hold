@@ -1,0 +1,22 @@
+<div class="gauge-wrapper">
+  <!-- 60% width leaves room for the legend on the right -->
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    style="width: 60%; height: 260px; display: block"
+  >
+  </highcharts-chart>
+
+  <ul class="legend" *ngIf="series?.length">
+    @for (s of series; track $index) {
+    <li>
+      <span class="dot" [style.background]="s.color"></span>
+      <div class="meta">
+        <span class="label">{{ s.name }}</span>
+        <span class="value">{{ s.value | number }}</span>
+      </div>
+      <span class="pct">{{ getPercent(s.value) | number:'1.0-0' }}%</span>
+    </li>
+    }
+  </ul>
+</div>

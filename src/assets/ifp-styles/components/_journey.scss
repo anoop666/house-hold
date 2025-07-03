@@ -1,0 +1,219 @@
+@use "../../../assets/ifp-styles/abstracts/index" as *;
+
+.ifp-journey {
+  background-color: rgba(0, 0, 0, 0.36);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  padding: $spacer-5;
+  &__blinker-wrapper {
+    position: relative;
+  }
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    padding: $spacer-5;
+    color: $ifp-color-white-global;
+    background-color: $ifp-color-blue-journey;
+    border-radius: 10px;
+    min-height: 440px;
+    min-width: 440px;
+    max-width: 1000px;
+    margin: $spacer-0 auto;
+    &--center {
+      align-items: center;
+      text-align: center;
+      .ifp-journey__inner-content {
+        margin: auto $spacer-0;
+      }
+    }
+  }
+
+  &__head {
+    font-size: $ifp-fs-10;
+    font-weight: $fw-semi-bold;
+    text-transform: capitalize;
+    margin-bottom: $spacer-3;
+  }
+  &__desc {
+    font-size: $ifp-fs-5;
+    margin-bottom: $spacer-3;
+  }
+  &__btn-sec {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+  }
+  &__head-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $spacer-4;
+    .ifp-journey {
+      &__head {
+        margin-bottom: $spacer-0;
+      }
+      &__btn-sec {
+        margin-top: $spacer-0;
+        width: auto;
+      }
+    }
+  }
+  &__btn-inline {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  &__blinker,
+  &__blinker-sp {
+    display: block;
+    border-radius: 50%;
+    background-color: $ifp-color-white-global;
+    &::before,
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &::before {
+      background-color: rgba(255, 255, 255, 0.25);
+      animation: zoomIn25 1s infinite;
+    }
+    &::after {
+      background-color: rgba(255, 255, 255, 0.25);
+      animation: zoomIn50 1s infinite;
+    }
+  }
+  &__blinker {
+    margin: $spacer-6 auto 0;
+    position: relative;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+  }
+  &__blinker-sp {
+    position: absolute;
+    z-index: 998;
+    top:0;
+    right: 0;
+    transform: translateY(-50%);
+    width: 15px;
+    min-width: 15px;
+    height: 15px;
+    cursor: pointer;
+    background-color: $ifp-color-blue-light;
+    opacity: 0.9;
+    &::before {
+      background-color: rgba(155, 200, 255, 0.5);
+    }
+    &::after {
+      background-color: rgba(155, 200, 255, 0.25);
+    }
+  }
+
+  &__btn,
+  &__btn-box {
+    display: inline-block;
+    font-weight: $fw-medium;
+    color: $ifp-color-white-global;
+    text-transform: uppercase;
+    cursor: pointer;
+    // transition: 0.3s;
+    // &:hover {
+    //   color: $ifp-color-blue-hover;
+    // }
+  }
+  &__btn {
+    padding: $spacer-2;
+    &--animate {
+      animation: hear-beat 1s infinite;
+    }
+    &--disable {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    &:hover,
+    &--disable {
+      animation: none;
+    }
+  }
+  &__btn-box {
+    padding: $spacer-2 $spacer-3;
+    border: 1px solid $ifp-color-white-global;
+    border-radius: 5px;
+    margin: $spacer-0 $spacer-2;
+    // &:hover {
+    //   border: 1px solid $ifp-color-blue-hover;
+    // }
+  }
+  &__overlay {
+    position: absolute;
+    left: 0;
+    transition: box-shadow .3s;
+    top: 0;
+      box-shadow:rgba(0, 0, 0, 0.36) 0px 0px 0px 9999px;
+      z-index: 1000;
+      border-radius: 10px;
+  }
+}
+
+@include mobile-tablet {
+  .ifp-journey {
+    &__blinker,
+    &__blinker-sp {
+      display: none !important;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn25 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes zoomIn50 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+
+@keyframes hear-beat {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  // 25% {
+  //   transform: translateX(5px);
+  // }
+  // 50% {
+  //   transform: translateX(-5px);
+  // }
+  100% {
+    // transform: translateX(5px);
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}

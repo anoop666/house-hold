@@ -1,0 +1,58 @@
+@use '../../../../../assets/ifp-styles/abstracts/variables' as *;
+@use '../../../../../assets/ifp-styles/abstracts/mixins' as *;
+
+.donut-chart-container {
+  width: 100%;
+  padding: 20px;
+  background: $ifp-color-white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .chart-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .donut-chart {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dotted-arc-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+  }
+
+  // Responsive design
+  @media (max-width: 768px) {
+    padding: 15px;
+
+    .chart-wrapper {
+      .donut-chart {
+        width: 250px;
+        height: 250px;
+      }
+
+      .dotted-arc-overlay {
+        width: 250px;
+        height: 250px;
+      }
+    }
+  }
+
+  // Dark mode support (if needed)
+  @media (prefers-color-scheme: dark) {
+    background: $ifp-color-grey-bg;
+    color: $ifp-color-white;
+  }
+}

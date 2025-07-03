@@ -1,0 +1,137 @@
+@mixin placeholder($placeholder-color) {
+  &::-webkit-input-placeholder {
+    color: $placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: $placeholder-color;
+  }
+  &:-moz-placeholder {
+    color: $placeholder-color;
+  }
+  &::placeholder {
+    color: $placeholder-color;
+  }
+}
+
+@mixin reset-number-input() {
+  appearance: none;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  -moz-appearance: textfield;
+}
+
+// Horizontal scrollbar
+@mixin ifp-scroll-x($track-color,$thumb-color,$size,$border-radius){
+  overflow-x: auto;
+  overflow-y: hidden;
+  &::-webkit-scrollbar {
+    height: $size;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: $border-radius;
+    background-color: $track-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $border-radius;
+  }
+  // scrollbar-color: $thumb-color $track-color;
+}
+
+// Vertical scrollbar
+@mixin ifp-scroll-y($track-color,$thumb-color,$size,$border-radius){
+  overflow-y: auto;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: $size;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: $border-radius;
+    background-color: $track-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $border-radius;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color:transparent
+  }
+  // scrollbar-color: $thumb-color $track-color;
+}
+
+@mixin ifp-scroll($track-color,$thumb-color,$size,$border-radius){
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: $border-radius;
+    background-color: $track-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-color;
+    border-radius: $border-radius;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color:transparent
+  }
+}
+
+// Limit number of lines
+@mixin lineLimit($limit) {
+  display: -webkit-box;
+  -webkit-line-clamp: $limit;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// transition effect
+@mixin transition($value) {
+  transition: all $value;
+}
+
+//Fullscreen detect
+@mixin fullscreen {
+  @media all and (display-mode: fullscreen) {
+    @content;
+  }
+}
+
+// Remove arrows from number input
+@mixin reset-number-input {
+  /* Firefox */
+  &[type=number] {
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    -moz-appearance: textfield;
+  }
+}
+
+// Remove hover on touch devices
+@mixin ignore-touch-hover {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin slide-down-below-header {
+  animation: slide-down-below-header 0.3s forwards;
+}
+
+@keyframes slide-down-below-header {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

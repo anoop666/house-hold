@@ -1,0 +1,108 @@
+@use '../../../../../assets/ifp-styles/abstracts/index' as *;
+
+.chart-demo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: $ifp-color-grey-bg;
+  min-height: 100vh;
+
+  .demo-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: $ifp-color-white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .demo-title {
+      color: $ifp-color-primary-grey;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 24px;
+    }
+
+    .demo-description {
+      color: $ifp-color-secondary-grey;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 14px;
+    }
+  }
+
+  .demo-content {
+    margin-bottom: 30px;
+
+    .chart-section {
+      margin-bottom: 40px;
+
+      h3 {
+        color: $ifp-color-primary-grey;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid $ifp-color-grey-3;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .demo-info {
+    background: $ifp-color-white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      color: $ifp-color-primary-grey;
+      margin-bottom: 15px;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        color: $ifp-color-secondary-grey;
+        padding: 8px 0;
+        border-bottom: 1px solid $ifp-color-grey-3;
+        position: relative;
+        padding-left: 20px;
+        font-size: 14px;
+
+        &:before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: $ifp-color-green;
+          font-weight: bold;
+        }
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  // Responsive design
+  @media (max-width: 768px) {
+    padding: 15px;
+
+    .demo-header {
+      padding: 15px;
+
+      .demo-title {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

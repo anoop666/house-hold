@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <!-- the chart -->
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    [(update)]="updateFlag"
+    style="width: 260px; height: 260px; display: block"
+  ></highcharts-chart>
+  <div class="inner-shadow-ring"></div>
+    <div class="center-circle">
+      <div class="center-text">
+        <div class="total">{{ total | number }}</div>
+        <div class="label">Total</div>
+      </div>
+    </div>
+
+  <!-- custom legend -->
+  <ul class="legend" *ngIf="processedData?.length">
+    <li class="legend-item" *ngFor="let slice of processedData">
+      <span class="dot" [style.background]="slice.color"></span>
+      <span class="label">{{ slice.name }}</span>
+      <span class="value">{{ slice.value | number }}</span>
+      <span class="pill">{{ slice.percentage | number: '1.0-1' }}%</span>
+    </li>
+  </ul>
+</div>

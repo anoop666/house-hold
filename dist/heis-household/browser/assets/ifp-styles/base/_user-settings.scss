@@ -1,0 +1,26 @@
+.ifp-font-sm {
+  .ifp-whats-new-card__name,
+  .ifp-compare-card-card__name,
+  .ifp-analysis__substitle
+   {
+    min-height: 29px !important;
+  }
+  .ifp-analysis__heading {
+    min-height: 38px;
+    max-height: 38px;
+  }
+  .ifp-header__overlay {
+    top: 242px !important;
+  }
+}
+
+.ifp-font-lg {
+  .ifp-analysis {
+    &__heading {
+      max-height: 57px !important;
+    }
+    &__substitle {
+      max-height: 44px !important;
+    }
+  }
+}

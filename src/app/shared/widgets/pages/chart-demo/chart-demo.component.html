@@ -1,0 +1,44 @@
+<div class="chart-demo-container">
+  <div class="demo-header">
+    <h1 class="demo-title">HEIS Household Charts Demo</h1>
+    <p class="demo-description">
+      Interactive charts showing household tenure types for Emirati and Non-Emirati populations.
+    </p>
+  </div>
+
+  <div class="demo-content">
+    <div class="chart-section">
+      <h3>Horizontal Bar Chart</h3>
+      <app-tenure-chart
+        [chartData]="tenureData"
+        [chartColors]="chartColors">
+      </app-tenure-chart>
+    </div>
+
+    <div class="chart-section">
+      <h3>Vertical Column Chart</h3>
+      <app-horizontal-bar-chart
+        [chartData]="horizontalBarData"
+        [chartColors]="horizontalBarColors">
+      </app-horizontal-bar-chart>
+    </div>
+
+    <div class="chart-section">
+      <h3>Donut Chart</h3>
+      <app-donut-chart
+        [chartData]="donutData">
+      </app-donut-chart>
+    </div>
+  </div>
+
+  <div class="demo-info">
+    <h3>Chart Features:</h3>
+    <ul>
+      <li>Interactive color customization</li>
+      <li>Responsive design</li>
+      <li>Accessible tooltips</li>
+      <li>Clean, professional styling</li>
+      <li>Follows IFP design system</li>
+    </ul>
+  </div>
+</div>

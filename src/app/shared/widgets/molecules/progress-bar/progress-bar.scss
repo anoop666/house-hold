@@ -1,0 +1,48 @@
+@use "../../../../../assets/ifp-styles/abstracts/index" as *;
+
+.ifp-progress {
+  &__container {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+
+    &.left {
+      flex-direction: row;
+
+      .ifp-progress {
+        &__percentage {
+          margin-right: 0;
+        }
+      }
+    }
+
+    &.right {
+      flex-direction: row-reverse;
+
+      .ifp-progress {
+        &__percentage {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+
+  &__percentage {
+    color: #2f2219;
+    margin: 0 10px;
+  }
+
+  &__bar {
+    width: 100px;
+    height: 8px;
+    background-color: #7d7a6e; // neutral grey (or override via input)
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__fill {
+    background-color: #2f2219;
+    height: 100%;
+    transition: width 0.3s ease-in-out;
+  }
+}

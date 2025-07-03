@@ -1,0 +1,200 @@
+<div
+  class="ifp-household"
+  [ngClass]="{'ifp-household--overlay-emirate': overlayEmirate,'ifp-household--overlay-nonemirate': overlayNonEmirate}"
+>
+  <div class="ifp-household__bg">
+    <img src="../../../../../assets/images/household-bg.png" alt="household" />
+  </div>
+  <div class="ifp-container">
+    <div class="ifp-household__wrapper">
+      <div class="ifp-household__top-box">
+        <app-filter></app-filter>
+        <div class="ifp-household__center-contents">
+          <div class="ifp-household__center-box">
+            <div class="ifp-household__light-txt">Emirate</div>
+            <div class="ifp-household__bold-txt">235,234</div>
+            <app-progress-bar
+              [percentage]="68.85"
+              align="right"
+            ></app-progress-bar>
+          </div>
+          <div class="ifp-household__center-box text-center">
+            <div class="ifp-household__light-txt">Emirate</div>
+            <div class="ifp-household__bold-txt">235,234</div>
+          </div>
+          <div class="ifp-household__center-box text-right">
+            <div class="ifp-household__light-txt">Emirate</div>
+            <div class="ifp-household__bold-txt">235,234</div>
+            <app-progress-bar
+              [percentage]="68.85"
+              align="left"
+            ></app-progress-bar>
+          </div>
+        </div>
+      </div>
+      <div class="ifp-household__close-outer">
+        <div
+          class="ifp-household__close"
+          (click)="emirateOverlayClick()"
+          [ngClass]="{'ifp-household--fixed-close': fixedBtn}"
+        >
+          <div class="ifp-household__close-width">
+            <div class="ifp-household__close-contents">
+              whole Family
+              <strong>Emirate</strong>
+            </div>
+            <img
+              src="../../../../../assets/images/forward-arrow.svg"
+              alt="forward-arrow"
+            />
+          </div>
+        </div>
+        <div
+          class="ifp-household__close ifp-household--reverse"
+          (click)="nonEmirateOverlayClick()"
+          [ngClass]="{'ifp-household--fixed-close': fixedBtn}"
+        >
+          <div class="ifp-household__close-width">
+            <div class="ifp-household__close-contents">
+              whole Family
+              <strong>Non-Emirate</strong>
+            </div>
+            <img
+              src="../../../../../assets/images/back-arrow.svg"
+              alt="back-arrow"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ifp-household__bottom-sec"
+        [ngClass]="{'expand': expandBottom}"
+      >
+        <button
+          type="button"
+          class="ifp-household__arrow"
+          (click)="toggleExpand()"
+        >
+          <img src="/assets/images/down-arrow-white.svg" alt="down arrow" />
+        </button>
+        <div class="ifp-household__slider-container">
+          <button
+            class="ifp-household__slider-nav prev"
+            (click)="slide(-1)"
+            [disabled]="currentSlide === 0"
+          >
+            <img
+              src="../../../../../assets/images/left-arrow.svg"
+              alt="left-icon"
+            />
+          </button>
+
+          <div class="ifp-household__slider">
+            <div
+              class="ifp-household__slider-track"
+              [style.transform]="'translateX(' + (-currentSlide * (100 / slidesToShow)) + '%)'"
+            >
+              @for (tile of tiles; track tile.title; let idx = $index) {
+              <div class="ifp-household__tile">
+                <div class="ifp-household__tile-head">{{tile.title}}</div>
+                <!-- <div class="ifp-household__tile-contents">{{tile.content}}</div> -->
+                @switch (idx) {
+                  @case (0) {
+                  <app-half-donut-chart [name1]="'male'" [name2]="'female'" [count1]="1000" [count2]="2000" [icon1]="'/assets/images/male.svg'" [icon2]="'/assets/images/female.svg'" ></app-half-donut-chart>
+                  }
+                  @case (1) {
+                  <app-bar-chart
+                  [data]="chartData"
+                  [width]="600"
+                  [barHeight]="12"
+                  [gap]="50"
+                  [showValue]="true"
+                  [showPercent]="true">
+                </app-bar-chart>
+                  }@case (2) {
+                  <app-full-donut-chart [data]="householdData" ></app-full-donut-chart>
+                }@case (3) {
+                <app-grouped-bar-chart [categories]="categories" [seriesData]="seriesData"></app-grouped-bar-chart>
+                }@case (4) {
+                  <app-radial-multi-gauge
+                  [series]="[
+                            { name: 'Gas cylinder', value: 432188, color: '#0952ff' },
+                            { name: 'Central gas', value: 218733, color: '#00c3c8' },
+                            { name: 'Electricity', value: 143557, color: '#ffa600' }]"
+                  [total]="750000"
+                >
+                </app-radial-multi-gauge>
+                }@case (5) {
+                  <app-bar-line-chart
+                  [data]="[
+                    { label: '1 Bedroom', value: 130227, percentage: 23.7 },
+                    { label: '2 Bedrooms', value: 195442, percentage: 33.5 },
+                    { label: '3 Bedrooms', value: 122775, percentage: 18.2 },
+                    { label: '4 Bedrooms', value: 39122, percentage: 4.1 },
+                    { label: '5 Bedrooms', value: 31200, percentage: 3.8 },
+                    { label: '6 Bedrooms', value: 16733, percentage: 2.1 }
+                  ]">
+                </app-bar-line-chart>
+                }@case (6) {
+                  <app-stacked-bar-chart
+                  [data]="housingData"
+                  [barHeight]="24">
+                </app-stacked-bar-chart>
+                }@case (7) {
+                <app-tornado-chart></app-tornado-chart>
+                }@case (8) {
+                  <app-multi-donut-chart [data]="multiDonutChartData"></app-multi-donut-chart>
+                }@case (9) {
+                  <div class="ifp-household__chart-container">
+                    @for (item of housingData; track $index) {
+                      <div class="ifp-household__chart-container-item">
+                      <app-dwelling-tile></app-dwelling-tile>
+                      </div>
+                    }
+                  </div>
+                }@case (10) {
+                  <div class="ifp-household__chart-container">
+                    @for (item of housingData; track $index) {
+                      <div class="ifp-household__chart-container-item">
+                      <app-dwelling-tile [imgIcon]="'gasoline-car.svg'" [tileHead]="'Gasoline Car'" [vechicles]="true" ></app-dwelling-tile>
+                      </div>
+                    }
+                  </div>
+                }@case (11) {
+                  <div class="ifp-household__chart-value-distribution">
+                    @for (item of housingData; track $index) {
+                      <div class="ifp-household__chart-value-distribution-item">
+                      <app-value-distribution></app-value-distribution>
+                      </div>
+                    }
+                  </div>
+                }@case (11) {
+                  <div class="ifp-household__chart-value-distribution">
+                    @for (item of housingData; track $index) {
+                      <div class="ifp-household__chart-value-distribution-item">
+                      <app-value-distribution-with-progress></app-value-distribution-with-progress>
+                      </div>
+                    }
+                  </div>
+                }
+              }
+              </div>
+            }
+            </div>
+          </div>
+
+          <button
+            class="ifp-household__slider-nav next"
+            (click)="slide(1)"
+            [disabled]="currentSlide === tiles.length - slidesToShow"
+          >
+            <img
+              src="../../../../../assets/images/right-arrow.svg"
+              alt="right-icon"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

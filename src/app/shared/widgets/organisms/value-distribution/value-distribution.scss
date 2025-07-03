@@ -1,0 +1,67 @@
+@use "../../../../../assets/ifp-styles/abstracts/index" as *;
+
+.ifp-dist {
+  &__outer {
+    border: 1px solid #D9E1E7;
+    background-color: #F5F7FE;
+    border-radius: 5px;
+    padding: $spacer-1;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__range-outer {
+    width: calc(58% - 1px);
+    display: flex;
+    border: 1px solid #D9E1E7;
+    border-radius: 5px;
+  }
+
+  &__currency-format {
+    width: 30px;
+    border-right: 1px solid #D9E1E7;
+    padding: $spacer-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 10px;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__range {
+    padding: $spacer-2;
+    font-size: 14px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__bg-outer {
+    width: calc(42% - 1px);
+    background-color: #172C60;
+    padding: $spacer-1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $ifp-color-white-global;
+    font-weight: $fw-bold;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+
+  &__white-box {
+    background-color: $ifp-color-white-global;
+    padding: $spacer-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 12px;
+    margin-left: $spacer-2;
+    border-radius: 5px;
+  }
+}
